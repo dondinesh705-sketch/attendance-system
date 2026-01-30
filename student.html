@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.png" alt="Logo" style="width: 40px;">
+            <h2>Attendify <small style="font-size: 0.5em; color: #666;">Student</small></h2>
+        </div>
+        <div class="nav-links">
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Student Info -->
+        <div class="card">
+            <h3>Welcome, <span id="studentName">Student</span></h3>
+            <p><strong>Roll Number:</strong> <span id="studentRoll">...</span></p>
+        </div>
+
+        <!-- Stats -->
+        <div class="card">
+            <h3>Attendance Summary</h3>
+            <div class="stat-box">
+                <div class="stat-item">
+                    <h4 id="statTotal">0</h4>
+                    <p>Total Classes</p>
+                </div>
+                <div class="stat-item">
+                    <h4 id="statPresent" style="color: var(--success)">0</h4>
+                    <p>Present</p>
+                </div>
+                <div class="stat-item">
+                    <h4 id="statAbsent" style="color: var(--danger)">0</h4>
+                    <p>Absent</p>
+                </div>
+                <div class="stat-item">
+                    <h4 id="statPercentage">0%</h4>
+                    <p>Attendance</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- History -->
+        <div class="card">
+            <h3>Recent Attendance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceHistory">
+                    <!-- Loaded via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/student.js"></script>
+</body>
+
+</html>

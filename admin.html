@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.png" alt="Logo" style="width: 40px;">
+            <h2>Attendify <small style="font-size: 0.5em; color: #666;">Teacher</small></h2>
+        </div>
+        <div class="nav-links">
+            <button onclick="showSection('students')">Students</button>
+            <button onclick="showSection('attendance')">Attendance</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Students Section -->
+        <div id="students-section">
+            <div class="card">
+                <h3>Manage Students</h3>
+                <div class="flex-row">
+                    <input type="text" id="studentName" placeholder="Student Name">
+                    <input type="text" id="rollNumber" placeholder="Roll Number">
+                    <button class="btn btn-small" onclick="addStudent()">Add Student</button>
+                </div>
+                <div class="flex-row">
+                    <input type="text" id="searchBox" placeholder="Search..." onkeyup="searchStudents()">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Attendance Section -->
+        <div id="attendance-section" class="hidden">
+            <div class="card">
+                <h3>Attendance Sheet</h3>
+                <div class="flex-row">
+                    <label>Year: <input type="number" id="attYear" value="2023"></label>
+                    <label>Month:
+                        <select id="attMonth">
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </label>
+                    <button class="btn btn-small" onclick="loadAttendance()">Load Sheet</button>
+                    <button class="btn btn-success btn-small" onclick="saveAttendance()">Save Changes</button>
+                    <button class="btn btn-small" onclick="exportReport()">Export Report (Print)</button>
+                </div>
+
+                <div class="attendance-table-container">
+                    <table class="attendance-table">
+                        <thead id="attHeader">
+                            <!-- Helper for sticky col -->
+                        </thead>
+                        <tbody id="attBody">
+                            <!-- Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
